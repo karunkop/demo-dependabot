@@ -1,0 +1,28 @@
+{
+  "name": "typescript-demo",
+  "version": "1.0.0",
+  "description": "Demo TypeScript project for Dependabot testing",
+  "main": "index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.17.1",
+    "lodash": "4.17.15",
+    "react": "16.13.0",
+    "react-dom": "16.13.0"
+  },
+  "scripts": {
+    "start": "ts-node index.ts",
+    "build": "tsc",
+    "dev": "ts-node index.ts"
+  },
+  "devDependencies": {
+    "@types/express": "4.17.9",
+    "@types/lodash": "4.14.165",
+    "@types/node": "14.14.10",
+    "@types/react": "16.9.56",
+    "@types/react-dom": "16.9.10",
+    "ts-node": "^10.9.1",
+    "typescript": "4.1.3"
+  }
+}
+
