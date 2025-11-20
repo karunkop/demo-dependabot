@@ -13,6 +13,30 @@ updates:
     directory: "/typescript"
     schedule:
       interval: "weekly"
+    groups:
+      # OPTION 1: Group ALL minor/patch updates into one PR
+      # This includes all packages AND their @types together
+      # Result: One big PR with all safe updates
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+      # OPTION 2 (commented out): Explicitly define pairs
+      # Uncomment this and comment out OPTION 1 if you want separate PRs per library
+      # express-with-types:
+      #   patterns:
+      #     - "express"
+      #     - "@types/express"
+      # sinon-with-types:
+      #   patterns:
+      #     - "sinon"
+      #     - "@types/sinon"
+      #     - "@sinonjs/fake-timers"
+      #     - "@types/sinonjs__fake-timers"
+      # OPTION 3 (commented out): No grouping at all
+      # Remove the entire groups section for separate PRs per package
   - package-ecosystem: bundler
     directory: "/ruby"
     schedule:
