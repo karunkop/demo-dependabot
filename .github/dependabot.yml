@@ -1,43 +1,44 @@
----
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
 version: 2
 updates:
-  # - package-ecosystem: "github-actions"
-  #   directory: "/"
-  #   schedule:
-  #     interval: "weekly"
-  # - package-ecosystem: npm
-  #   directory: "/javascript"
-  #   schedule:
-  #     interval: "weekly"
-  - package-ecosystem: npm
-    directory: "/typescript"
+  - package-ecosystem: 'npm'
+    directory: '/typescript' # Location of package file
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
+    # Group related deps into single PR
     groups:
-      # OPTION 1: Group ALL minor/patch updates into one PR
-      # This includes all packages AND their @types together
-      # Result: One big PR with all safe updates
-      # minor-and-patch:
-      #   patterns:
-      #     - "*"
-      #   update-types:
-      #     - "minor"
-      #     - "patch"
-      # OPTION 2 (commented out): Explicitly define pairs
-      # Uncomment this and comment out OPTION 1 if you want separate PRs per library
-      express-with-types:
+      # Semantic versioning groups (catch-all for ungrouped dependencies)
+      patch-updates:
+        update-types:
+          - 'patch'
+      minor-updates:
+        update-types:
+          - 'minor'
+      # Specific package groups (these take precedence over semantic groups)
+      react:
         patterns:
-          - "express"
-          - "@types/express"
-      sinon-with-types:
+          - 'react'
+          - 'react-dom'
+          - '@types/react'
+          - '@types/react-dom'
+      capacitor:
         patterns:
-          - "sinon"
-          - "@types/sinon"
-          - "@sinonjs/fake-timers"
-          - "@types/sinonjs__fake-timers"
-      # OPTION 3 (commented out): No grouping at all
-      # Remove the entire groups section for separate PRs per package
-  # - package-ecosystem: bundler
-  #   directory: "/ruby"
-  #   schedule:
-  #     interval: "weekly"
+          - '@capacitor/*'
+      redux:
+        patterns:
+          - 'redux'
+          - 'redux-*'
+          - 'react-redux'
+          - 'reselect'
+          - 'redux-mock-store'
+          - '@types/react-redux'
+          - '@types/redux-mock-store'
+      sinon-fake-timers:
+        patterns:
+          - '@sinonjs/fake-timers'
+          - '@types/sinonjs__fake-timers'
+ 
