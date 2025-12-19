@@ -7,17 +7,18 @@ version: 2
 updates:
   - package-ecosystem: 'npm'
     directory: '/typescript' # Location of package file
+    open-pull-requests-limit: 10
     schedule:
       interval: 'weekly'
     # Group related deps into single PR
     groups:
       # Semantic versioning groups (catch-all for ungrouped dependencies)
-      patch-updates:
-        update-types:
-          - 'patch'
-      minor-updates:
-        update-types:
-          - 'minor'
+      # patch-updates:
+      #   update-types:
+      #     - 'patch'
+      # minor-updates:
+      #   update-types:
+      #     - 'minor'
       # Specific package groups (these take precedence over semantic groups)
       react:
         patterns:
